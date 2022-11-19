@@ -64,12 +64,11 @@ func (a *API) newRouter() chi.Router {
 
 	newRouter := chi.NewRouter()
 
-	// TODO
-	newRouter.Use(middleware.RequestID) // разобраться, зачем нужен
-	newRouter.Use(middleware.RealIP)    // разобраться, зачем нужен
+	newRouter.Use(middleware.RequestID)
+	newRouter.Use(middleware.RealIP)
 	newRouter.Use(middleware.Logger)
 	newRouter.Use(middleware.Recoverer)
-	newRouter.Use(middleware.Timeout(60 * time.Second)) // протестировать его работу
+	newRouter.Use(middleware.Timeout(60 * time.Second))
 
 	newRouter.Get("/", a.startHandler)
 

@@ -82,7 +82,6 @@ func (s *StorageFile) CreateUser(newUser *model.User) (id int64, err error) {
 	}
 
 	allUsers.Increment++
-	fmt.Println("increment: ", allUsers.Increment)
 
 	idForList := strconv.FormatInt(allUsers.Increment, 10)
 	allUsers.List[idForList] = *newUser
