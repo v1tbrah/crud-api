@@ -65,6 +65,7 @@ func (a *API) newRouter() chi.Router {
 	newRouter := chi.NewRouter()
 
 	newRouter.Use(middleware.RequestID)
+	newRouter.Use(middleware.RealIP)
 	newRouter.Use(middleware.Logger)
 	newRouter.Use(middleware.Recoverer)
 	newRouter.Use(middleware.Timeout(60 * time.Second))
